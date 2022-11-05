@@ -1,4 +1,5 @@
 import Header from '../../components/Header/Header';
+import PrescriptionSummary from './PrescriptionSummaryCard';
 import PatientCard from './PatientCard';
 import { useNavigate } from 'react-router-dom';
 // import { patient } from '../../data/patient';
@@ -27,9 +28,14 @@ const OrderSummary = () => {
       {state.orderContent !== undefined && (
         <p>{state.orderContent[0]?.description?.toString()}</p>
       )}
-      <div className='container'>
-        <div className='left-card'>
-          <PatientCard />
+      <div className='order-container'>
+        <div className='summary'>
+          <div className='left-card'>
+            <PatientCard />
+          </div>
+          <div className='right-card'>
+            <PrescriptionSummary />
+          </div>
         </div>
         <div className='button-container'>
           <Button
