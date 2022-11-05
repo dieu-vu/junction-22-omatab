@@ -11,18 +11,25 @@ jobs:
       - uses: actions/setup-node@v3
         name: Setup Node.js
       - run: |
-          echo REACT_APP_API_KEY=$REACT_APP_API_KEY > env
-          echo REACT_APP_MERCHANT_ID=$REACT_APP_MERCHANT_ID >> env
+          cat > env<<EOF
+          REACT_APP_API_KEY=${REACT_APP_API_KEY}
+          REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID}
+          EOF
         working-directory: ./client-app
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
         name: Generate env file
+      - run: |
+          npm install
+          npm run build
+        working-directory: ./client-app
+        name: Build
       - uses: easingthemes/ssh-deploy@main
         name: Sync build result to deployment server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "client-app/"
+          SOURCE: "client-app/build/"
           REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/publish"
