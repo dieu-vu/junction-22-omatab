@@ -6,4 +6,5 @@ export type MainContextType = {
     orderDTO: OrderDTO;
     pickup: Pickup;
     dropoff: Dropoff;
+    trackingLink: string;
 }

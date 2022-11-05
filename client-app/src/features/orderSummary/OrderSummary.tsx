@@ -14,7 +14,7 @@ import { Button } from '@mui/material';
 
 const OrderSummary = () => {
   const navigate = useNavigate();
-  const { state, setState } = useGlobalState();
+  const { setState } = useGlobalState();
 
   useEffect(() => {
     var contents = CreateOrderContentFromPrescription(prescriptions);
@@ -24,9 +24,6 @@ const OrderSummary = () => {
   return (
     <>
       <Header title='Order Summary' />
-      {state.orderContent !== undefined && (
-        <p>{state.orderContent[0]?.description?.toString()}</p>
-      )}
       <div className='order-container'>
         <div className='summary'>
           <div className='left-card'>

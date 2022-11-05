@@ -6,14 +6,18 @@ import {
   StepLabel,
   Stepper,
   Typography,
+  Button
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { steps } from '../../data/steps';
+import { useGlobalState } from '../../context/MainContext';
 
 import './styles.css';
 
 export default function DeliveryLoading() {
   const [activeStep, setActiveStep] = useState(0);
+  const { state } = useGlobalState();
+  const trackingLink = state.trackingLink;
 
   useEffect(() => {
     setTimeout(() => setActiveStep(activeStep + 1), 5000);
@@ -38,6 +42,14 @@ export default function DeliveryLoading() {
             ))}
           </Stepper>
         </div>
+        <div className='button-container'>
+        <Button
+            variant='contained'
+            onClick={() => window.open(trackingLink, '_blank', 'noopener,noreferrer')}>
+            Open tracking on Wolt
+          </Button>
+        </div>
+        
         <Loading width='20%' style={{ position: 'absolute' }} />
       </div>
     </>

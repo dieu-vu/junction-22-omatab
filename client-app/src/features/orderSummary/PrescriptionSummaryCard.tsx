@@ -68,9 +68,7 @@ export default function PrescriptionSummary() {
       <CardHeader title='Prescription summary' />
       <CardContent>
         <Typography variant='body2' color='text.secondary'>
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          Below you can find a summary of the ordered prescription.
         </Typography>
         <CardActions sx={{ marginY: 2 }}>
           {Array.from(categories.keys()).map((cat) => {

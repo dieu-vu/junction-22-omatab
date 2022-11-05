@@ -11,9 +11,6 @@ export default function DropoffInfo() {
   return (
     <>
       <Header title='Delivery Information' />
-      {state.orderContent !== undefined && (
-            <p>{ state.orderContent[0]?.description?.toString()}</p>
-              )}
       <div className='container'>
         <DeliveryForm title='Drop off info' isPickedUp={false} />
         <div style={{ marginLeft: '5%' }}>
