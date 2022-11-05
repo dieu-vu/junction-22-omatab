@@ -1,0 +1,24 @@
+.header-container {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+}
+
+.header-container p,
+.header-container div {
+  flex: 1;
+}
+
+.logo {
+  margin-top: 15px;
+}
+
+.header-container p {
+  flex: 2;
+  margin: 0;
+  font-size: 60px;
+  color: #4461f2;
+  font-weight: bold;
+  text-align: center;
+}
