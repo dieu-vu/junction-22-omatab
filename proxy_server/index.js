@@ -1,13 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const { config } = require('dotenv')
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
 const app = express();
 
-const PORT=3001;
-const HOST="65.108.221.181"
+config();
+
+const PORT = parseInt(process.env.PORT) || 3001;
+const HOST = process.env.HOST || "localhost"
 const API_SERVICE_URL = 'https://daas-public-api.development.dev.woltapi.com/merchants/';
 
 app.use(morgan('dev'))
