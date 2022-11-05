@@ -1,8 +1,7 @@
-
 {
   "pickup": {
     "location": {
-        "formatted_address": "Arkadiankatu 3-6"
+      "formatted_address": "Arkadiankatu 3-6"
     },
     "comment": "The box is in front of the door",
     "contact_details": {
