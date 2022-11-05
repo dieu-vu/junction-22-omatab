@@ -11,6 +11,15 @@ jobs:
       - uses: actions/setup-node@v3
         name: Setup Node.js
       - run: |
+          echo > client-app/env<<EOF
+          REACT_APP_API_KEY=${REACT_APP_API_KEY}
+          REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID}
+          EOF
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+          REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
+        name: Generate env file
+      - run: |
           npm install
           npm run build
         working-directory: ./client-app
@@ -31,23 +40,6 @@ jobs:
           REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/"
-      - run: |
-          echo > env<<EOF
-          REACT_APP_API_KEY=${REACT_APP_API_KEY}
-          REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID}
-          EOF
-        env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-          REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
-        name: Generate env file
-      - uses: easingthemes/ssh-deploy@main
-        name: Sync env file to deployment server
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "env"
-          REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
-          REMOTE_USER: "omatab"
-          TARGET: "/home/omatab/publish/client-app/"
       - name: Cleanup env file
         run: |
-          rm -f env
+          rm -f client-app/env
