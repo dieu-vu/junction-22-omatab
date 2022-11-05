@@ -1,5 +1,4 @@
-// import React, { ReactElement } from 'react';
-import OrderSummary from '../features/orderSummary/OrderSummary';
+import OrderSummary from '../features/orderSummary/OderSummary';
 import {
   // BrowserRouter as Router,
   Route,
@@ -9,7 +8,6 @@ import {
 } from 'react-router-dom';
 import PickupLocation from '../features/deliveryInfo/PickupLocation';
 import DropoffLocation from '../features/deliveryInfo/DropoffLocation';
-
 
 const router = createBrowserRouter(
   createRoutesFromElements(
