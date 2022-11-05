@@ -24,7 +24,7 @@ const postOrder = async (data: OrderDTO) => {
   };
   try {
     const response = await fetch(
-      `/${merchant_id}/delivery-order`,
+      `${baseUrl}/${merchant_id}/delivery-order`,
       options
     );
     const json = await response.json();
