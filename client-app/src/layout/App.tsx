@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react'; // eslint-disable-line no-unused-vars
+// import React, { ReactElement } from 'react';
 import OrderSummary from '../features/orderSummary/OrderSummary';
 import {
-  BrowserRouter as Router, // eslint-disable-line no-unused-vars
+  // BrowserRouter as Router,
   Route,
   RouterProvider,
   createBrowserRouter,
