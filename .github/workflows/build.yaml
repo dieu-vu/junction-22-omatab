@@ -11,10 +11,10 @@ jobs:
       - uses: actions/setup-node@v3
         name: Setup Node.js
       - run: |
-          echo REACT_APP_API_KEY=${REACT_APP_API_KEY} > .env
-          echo REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID} >> .env
-          echo HOST=${HOST} >> .env
+          echo HOST=${HOST} > .env
           echo PORT=${PORT} >> .env
+          echo REACT_APP_API_KEY=${REACT_APP_API_KEY} >> .env
+          echo REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID} >> .env
         working-directory: ./client-app
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
@@ -48,7 +48,7 @@ jobs:
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/"
       - run: |
-          echo HOST=${HOST} >> .env
+          echo HOST=${HOST} > .env
           echo PORT=${PORT} >> .env
         working-directory: ./proxy_server
         env:
