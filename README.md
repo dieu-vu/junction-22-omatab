@@ -20,3 +20,5 @@ cd client-app
 npm install
 npm start
 ```
+
+Production site: http://65.108.221.181/
