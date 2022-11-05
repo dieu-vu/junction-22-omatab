@@ -29,7 +29,7 @@ jobs:
         name: Sync build result to deployment server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "client-app/build/"
+          SOURCE: "client-app/"
           REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/publish"
