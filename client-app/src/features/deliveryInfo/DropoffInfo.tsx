@@ -6,7 +6,6 @@ import { useGlobalState } from '../../context/MainContext';
 
 
 export default function DropoffInfo() {
-  const { state } = useGlobalState();
 
   return (
     <>
