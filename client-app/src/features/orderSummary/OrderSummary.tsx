@@ -15,12 +15,11 @@ import { Button } from '@mui/material';
 const OrderSummary = () => {
   const navigate = useNavigate();
   const { state, setState } = useGlobalState();
-  var contents = CreateOrderContentFromPrescription(prescriptions);
+
   useEffect(() => {
+    var contents = CreateOrderContentFromPrescription(prescriptions);
     setState((prev) => ({ ...prev, orderContent: contents }));
-    //   console.log("contents", contents);
-    //   console.log("setState", state.orderContent);
-  }, []);
+  }, [setState]);
 
   return (
     <>
