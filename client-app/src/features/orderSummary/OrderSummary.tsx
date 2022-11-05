@@ -1,12 +1,12 @@
 import Header from '../../components/Header/Header';
 import PrescriptionSummary from './PrescriptionSummaryCard';
 import PatientCard from './PatientCard';
-import { patient } from '../../data/patient';
+// import { patient } from '../../data/patient';
 import './styles.css';
 import { CreateOrderContentFromPrescription } from '../../hooks/OrderDTO';
 import { prescriptions } from '../../data/prescriptions';
-import { MainContext } from '../../context/MainContext';
-import { useContext } from 'react';
+// import { MainContext } from '../../context/MainContext';
+// import { useContext } from 'react';
 
 const OrderSummary = () => {
   // const { setOrderContent } = React.useContext(MainContext);

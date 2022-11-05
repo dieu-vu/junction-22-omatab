@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import { MainContextType } from './MainContextType';
 import { Content } from '../hooks/OrderDTO';
   

@@ -1,6 +1,5 @@
-import { isContentEditable } from "@testing-library/user-event/dist/utils";
-import { count } from "console";
-import { Prescription, prescriptions } from "../data/prescriptions";
+
+import { Prescription } from "../data/prescriptions";
 
 export interface PickupLocation {
     formatted_address: string;
