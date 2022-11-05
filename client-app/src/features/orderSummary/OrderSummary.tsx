@@ -1,16 +1,20 @@
-import { Container } from "@mui/material";
-import React from "react";
-import Header from "../../components/Header/Header";
+import Header from '../../components/Header/Header';
+import PatientCard from './PatientCard';
+
+import './styles.css';
 
 const OrderSummary = () => {
-    return (
-        <>
-            <Header title="Order Summary"/>
-            <h1>Order Summary</h1>
-        </>
+  return (
+    <>
+      <Header title='Order Summary' />
+      <div className='container'>
+        <PatientCard />
 
-        
-    )
-}
+        {/* order summary card */}
+        <PatientCard />
+      </div>
+    </>
+  );
+};
 
 export default OrderSummary;
