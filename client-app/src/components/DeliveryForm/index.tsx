@@ -11,6 +11,9 @@ import {
 import { useState } from 'react';
 
 import './styles.css';
+import { useGlobalState } from '../../context/MainContext';
+import { BuildDeliveryInfoObject, BuildOrderDTO } from '../../hooks/OrderDTO';
+import { postOrder } from '../../hooks/apiHook';
 
 interface Props {
   title: string;
@@ -19,15 +22,43 @@ interface Props {
 
 export default function DeliveryForm({ title, isPickedUp }: Props) {
   const navigate = useNavigate();
+  const { state, setState } = useGlobalState();
 
   const [formState, setFormState] = useState({
     name: '',
     phoneNumber: '',
     hasTrackingSMS: true,
     address: '',
-    time: new Date().toISOString().substring(0, 19),
+    time: new Date().toISOString(),
     comment: '',
   });
+
+  const handlePickUpInfo = (isPickUp: boolean) => {
+    var address: string = formState.address;
+    var phoneNumber: string = formState.phoneNumber;
+    var smsTracking: boolean = formState.hasTrackingSMS;
+    var name: string = formState.name;
+    var comment: string = formState.comment;
+    var deliveryInfo = BuildDeliveryInfoObject(isPickUp, address, phoneNumber, smsTracking, name, comment);
+    if (isPickUp) {
+      navigate('/delivery/dropoff');
+      setState((prev) => ({ ...prev, pickup: deliveryInfo }));
+    } else {
+      setState((prev) => ({ ...prev, dropoff: deliveryInfo }));
+      var orderDTO = BuildOrderDTO(
+        state.pickup,
+        state.dropoff,
+        false,
+        state.orderContent,
+        [],
+        5,
+        formState.time,
+      )
+      var postResponse = postOrder(orderDTO);
+      console.log(postResponse);
+    }
+  }
+
 
   const handleButtonClick = (event: any) => {
     event.preventDefault();
@@ -38,7 +69,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
       formState.address !== '' &&
       formState.time !== ''
     ) {
-      isPickedUp ? navigate('/delivery/dropoff') : console.log(formState);
+      handlePickUpInfo(isPickedUp);
     }
   };
 

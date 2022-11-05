@@ -8,12 +8,15 @@ const merchant_id: string = process.env.REACT_APP_MERCHANT_ID || '';
 
 console.log("env var: ", process.env.REACT_APP_MERCHANT_ID || 'env var not found');
 
-const postOrder = async (data: OrderDTO ) => {
+const postOrder = async (data: OrderDTO) => {
+  console.log("post data object", JSON.stringify(data));
     const options = {
-        method: 'POST',
+      method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${api_key}`
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${api_key}`,
+          'Access-Control-Allow-Origin': '*',
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
         },
         body: JSON.stringify(data),
     };

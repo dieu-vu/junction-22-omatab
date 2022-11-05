@@ -1,0 +1,56 @@
+{
+  "pickup": {
+    "location": { "formatted_address": "Arkadiankatu 3" },
+    "contact_details": {
+      "name": "Alibaba",
+      "phone_number": "+358407845671",
+      "send_tracking_link_sms": true
+    },
+    "comment": "dfadsf"
+  },
+  "dropoff": {
+    "location": { "formatted_address": "Arkadiankatu 5" },
+    "contact_details": {
+      "name": "Alibebe",
+      "phone_number": "+358407905678",
+      "send_tracking_link_sms": true
+    },
+    "comment": "dfsdfs"
+  },
+  "customer_support": {
+    "email": "support@wolt.com",
+    "phone_number": "+35840666666",
+    "url": "https://wolt.com/en/contact"
+  },
+  "merchant_order_reference_id": "",
+  "is_no_contact": false,
+  "contents": [
+    {
+      "count": 2,
+      "description": "Multivitamin. Note:  1 tab per day",
+      "identifier": "MULVIT",
+      "tags": ["alcohol"]
+    },
+    {
+      "count": 1,
+      "description": "Aspirin. Note: 1 tab when pain",
+      "identifier": "ASPIRIN",
+      "tags": ["alcohol"]
+    },
+    {
+      "count": 1,
+      "description": "Calcium. Note:  1 tab every 2 day",
+      "identifier": "CALCI",
+      "tags": ["alcohol"]
+    },
+    {
+      "count": 1,
+      "description": "BEPANTHEN EYE SILMÄTIPAT 40X0,5 ML. Note: 2 drops everyday",
+      "identifier": "BEPANTHEN_EYE",
+      "tags": ["alcohol"]
+    }
+  ],
+  "tips": [],
+  "min_preparation_time_minutes": 5,
+  "scheduled_dropoff_time": "2022-11-05T17:52:15.463Z"
+}
