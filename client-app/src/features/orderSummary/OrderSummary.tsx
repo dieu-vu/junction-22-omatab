@@ -31,7 +31,7 @@ const OrderSummary = () => {
       <div className='order-container'>
         <div className='summary'>
           <div className='left-card'>
-            <PatientCard />
+            <a href="/delivery/dropoff"><PatientCard /></a>
           </div>
           <div className='right-card'>
             <PrescriptionSummary />
