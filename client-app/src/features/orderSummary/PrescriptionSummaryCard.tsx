@@ -7,7 +7,7 @@ import {
   CardActions,
   Collapse,
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import item1 from '../../assets/item1.png';
 import item2 from '../../assets/item2.png';
 import item3 from '../../assets/item3.png';
@@ -26,17 +26,9 @@ export default function PrescriptionSummary() {
   const [expandedContent, setExpandedContent] = useState<string>('');
   const [categories, setCategories] = useState<Map<string, number>>(new Map());
 
-  prescriptions.forEach((el) => {
-    const tags = el.Tag;
-    tags.forEach((t) => {
-      if (!categories.has(t)) {
-        categories.set(t, 1);
-      } else {
-        const item = categories.get(t);
-        if (item) categories.set(t, item + 1);
-      }
-    });
-  });
+  useEffect(() => {
+    setCategories(new Map());
+  }, []);
 
   const ExpandMore = styled((props: ExpandMoreProps) => {
     const { image, category, handleClick } = props;
