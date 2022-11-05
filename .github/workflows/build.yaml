@@ -14,7 +14,9 @@ jobs:
           npm install
           npm run build
         working-directory: ./client-app
+        name: Build
       - uses: easingthemes/ssh-deploy@main
+        name: Sync build result to deployment server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: "client-app/build/"
@@ -22,6 +24,7 @@ jobs:
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/publish"
       - uses: easingthemes/ssh-deploy@main
+        name: Sync start.sh to deployment server
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: "deployments/start.sh"
