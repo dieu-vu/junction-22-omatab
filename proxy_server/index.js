@@ -7,7 +7,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 const PORT=3001;
-const HOST="localhost";
+const HOST="65.108.221.181"
 const API_SERVICE_URL = 'https://daas-public-api.development.dev.woltapi.com/merchants/';
 
 app.use(morgan('dev'))
