@@ -20,11 +20,8 @@ jobs:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
           HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
-          PORT: 3001
+          PORT: "3001"
         name: Generate frontend env file
-      - run: |
-          cat .env
-        working-directory: ./client-app
       - run: |
           npm install
           npm run build

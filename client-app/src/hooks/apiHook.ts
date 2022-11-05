@@ -1,7 +1,7 @@
 import { OrderDTO } from './OrderDTO';
 
 const port: string = process.env.PORT || "3001"
-const host: string = process.env.HOST || "localhost"
+const host: string = process.env.HOST || "65.108.221.181"
 
 const baseUrl: string = `http://${host}:${port}`
 const api_key: string = process.env.REACT_APP_API_KEY || ''; 
