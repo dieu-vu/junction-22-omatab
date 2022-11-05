@@ -14,9 +14,9 @@ const OrderSummary = () => {
   useEffect(
     () => {
           setState((prev) => ({ ...prev, orderContent: contents }));
-          console.log("contents", contents);
-          console.log("setState", state.orderContent);
-      }, []);
+        //   console.log("contents", contents);
+        //   console.log("setState", state.orderContent);
+      }, [contents, setState]);
     
   return (
     <>
