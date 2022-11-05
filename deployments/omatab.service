@@ -4,7 +4,6 @@ Description="Omatab service"
 [Service]
 Type=simple
 ExecStart=/home/omatab/start.sh
-#ExecStart=node -v
 Restart=always
 User=omatab
 
