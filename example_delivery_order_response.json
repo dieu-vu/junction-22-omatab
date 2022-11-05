@@ -1,0 +1,62 @@
+{
+    "pickup": {
+        "eta": "2022-11-05T06:31:29+00:00Z",
+        "location": {
+            "formatted_address": "Arkadiankatu 3-6",
+            "coordinates": {
+                "lat": 60.1713721,
+                "lon": 24.9344014
+            }
+        },
+        "comment": "The box is in front of the door",
+        "contact_details": {
+            "name": "John Doe",
+            "phone_number": "+358123456789",
+            "send_tracking_link_sms": false
+        }
+    },
+    "dropoff": {
+        "eta": "2022-11-05T07:11:29.437000+00:00Z",
+        "location": {
+            "formatted_address": "Otakaari 24, 02150 Espoo",
+            "coordinates": {
+                "lat": 60.18514089999999,
+                "lon": 24.8323964
+            }
+        },
+        "comment": "Leave at the door, please",
+        "contact_details": {
+            "name": "John Doe's wife",
+            "phone_number": "+358123456789",
+            "send_tracking_link_sms": false
+        }
+    },
+    "scheduled_dropoff_time": null,
+    "customer_support": {
+        "email": "string",
+        "phone_number": "string",
+        "url": "string"
+    },
+    "is_no_contact": true,
+    "merchant_order_reference_id": null,
+    "contents": [
+        {
+            "count": 1,
+            "description": "plastic bag",
+            "identifier": "12345",
+            "tags": []
+        }
+    ],
+    "tips": [],
+    "price": {
+        "amount": 1000,
+        "currency": "EUR"
+    },
+    "tracking": {
+        "id": "FQTE87",
+        "url": "https://daas-track.development.dev.woltapi.com/track/FQTE87"
+    },
+    "wolt_order_reference_id": "636600e99dd39e55d525dbd5",
+    "min_preparation_time_minutes": 10,
+    "order_number": null
+}

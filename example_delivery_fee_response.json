@@ -1,0 +1,27 @@
+{
+    "created_at": "2022-11-05T06:20:52.686267Z",
+    "pickup": {
+        "location": {
+            "formatted_address": "Arkadiankatu 3-6",
+            "coordinates": {
+                "lat": 60.1713721,
+                "lon": 24.9344014
+            }
+        }
+    },
+    "dropoff": {
+        "location": {
+            "formatted_address": "Otakaari 24, 02150 Espoo",
+            "coordinates": {
+                "lat": 60.18514089999999,
+                "lon": 24.8323964
+            }
+        }
+    },
+    "fee": {
+        "amount": 1000,
+        "currency": "EUR"
+    },
+    "time_estimate_minutes": 50,
+    "scheduled_dropoff_time": null
+}
