@@ -11,8 +11,12 @@ import { useEffect } from 'react';
 const OrderSummary = () => {
   const { state, setState } = useGlobalState();
     var contents = CreateOrderContentFromPrescription(prescriptions);
-    setState((prev) => ({ ...prev, orderContent: contents }));
-
+  useEffect(
+    () => {
+          setState((prev) => ({ ...prev, orderContent: contents }));
+          console.log("contents", contents);
+          console.log("setState", state.orderContent);
+      }, []);
     
   return (
     <>
