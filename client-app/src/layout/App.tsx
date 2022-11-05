@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import DropoffInfo from '../features/deliveryInfo/DropoffInfo';
 import PickupInfo from '../features/deliveryInfo/PickupInfo';
+import { MainProvider } from '../context/MainContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +21,12 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <MainProvider>
+      <RouterProvider router={router} />
+    </MainProvider>
+      
+  )
 };
 
 export default App;

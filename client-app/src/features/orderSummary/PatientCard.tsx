@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import profilePic from '../../assets/profile_pic.png';
-import { patient, PatientInfo } from '../../seedData/patient';
+import { patient, PatientInfo } from '../../data/patient';
 
 export default function PatientCard() {
   var patientInfo: PatientInfo = patient;
