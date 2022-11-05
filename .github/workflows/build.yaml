@@ -17,7 +17,7 @@ jobs:
       - uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "build/"
-          REMOTE_HOST: $${{ secrets.BUILD_HOST_ADDRESS }}
+          SOURCE: "client-app/build/"
+          REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/publish"
