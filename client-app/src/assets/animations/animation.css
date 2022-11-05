@@ -1,0 +1,25 @@
+@keyframes motorcycle {
+  0% {
+    left: 0;
+  }
+  48% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    left: 90%;
+    transform: rotateY(180deg);
+  }
+  98% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    left: 0;
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes city {
+  100% {
+    transform: translateX(-1200px);
+  }
+}

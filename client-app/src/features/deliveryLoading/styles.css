@@ -1,0 +1,22 @@
+@import '../../assets/animations/animation.css';
+
+.tracking-page {
+  background-image: url('../../assets/city.png');
+  height: 500px;
+}
+
+.tracking-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#motorcycle {
+  position: absolute;
+  top: 450px;
+  animation: motorcycle 7s infinite;
+}
+
+.MuiStepLabel-labelContainer span {
+  font-size: larger;
+}
