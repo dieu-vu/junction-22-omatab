@@ -12,3 +12,11 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${API
 # Get Delivery fee
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${API_TOKEN_KEY}" -d @example_delivery_fee_request.json https://daas-public-api.development.dev.woltapi.com/merchants/$MERCHANT_ID/delivery-fee | python3 -mjson.tool
 ```
+
+## How to start the client
+
+```bash
+cd client-app
+npm install
+npm start
+```

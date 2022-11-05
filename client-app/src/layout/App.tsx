@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import PickupLocation from '../features/deliveryInfo/PickupLocation';
 import DropoffLocation from '../features/deliveryInfo/DropoffLocation';
+import Header from '../components/Header/Header';
 
 
 const router = createBrowserRouter(
