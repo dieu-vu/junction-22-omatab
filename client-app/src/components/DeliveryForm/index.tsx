@@ -33,7 +33,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
     comment: '',
   });
 
-  const handlePickUpInfo = (isPickUp: boolean) => {
+  const handlePickUpInfo = async (isPickUp: boolean) => {
     var address: string = formState.address;
     var phoneNumber: string = formState.phoneNumber;
     var smsTracking: boolean = formState.hasTrackingSMS;
@@ -54,7 +54,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
         5,
         formState.time,
       )
-      var postResponse = postOrder(orderDTO);
+      var postResponse = await postOrder(orderDTO);
       console.log(postResponse);
     }
   }
