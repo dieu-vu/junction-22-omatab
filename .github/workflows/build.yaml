@@ -11,10 +11,11 @@ jobs:
       - uses: actions/setup-node@v3
         name: Setup Node.js
       - run: |
-          echo > client-app/env<<EOF
+          echo > env<<EOF
           REACT_APP_API_KEY=${REACT_APP_API_KEY}
           REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID}
           EOF
+        working-directory: ./client-app
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
@@ -42,4 +43,5 @@ jobs:
           TARGET: "/home/omatab/"
       - name: Cleanup env file
         run: |
-          rm -f client-app/env
+          rm -f env
+        working-directory: ./client-app
