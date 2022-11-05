@@ -2,7 +2,6 @@ import DeliveryForm from '../../components/DeliveryForm';
 import Header from '../../components/Header/Header';
 import deliveryImage from '../../assets/delivery.png';
 import './styles.css';
-import { useGlobalState } from '../../context/MainContext';
 
 
 export default function DropoffInfo() {
