@@ -8,7 +8,6 @@ const OrderSummary = () => {
   return (
     <>
       <Header title='Order Summary' />
-      <p>{ process.env.REACT_APP_MERCHANT_ID || 'env var not found'}</p>
       <div className='container'>
         <div className='left-card'>
           <PatientCard />
