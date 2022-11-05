@@ -23,22 +23,22 @@ export default function DeliveryLoading() {
     <>
       <Header title='Tracking Delivery' />
       <div className='tracking-page'>
-        <Loading width='10%' style={{ position: 'absolute' }} />
-      </div>
-      <div className='tracking-container'>
-        <Stepper
-          activeStep={activeStep}
-          orientation='vertical'
-          style={{ marginTop: '80px' }}>
-          {steps.map((step) => (
-            <Step key={step.label}>
-              <StepLabel>{step.label}</StepLabel>
-              <StepContent>
-                <Typography>{step.description}</Typography>
-              </StepContent>
-            </Step>
-          ))}
-        </Stepper>
+        <div className='tracking-container'>
+          <Stepper
+            activeStep={activeStep}
+            orientation='vertical'
+            style={{ marginTop: '50px' }}>
+            {steps.map((step) => (
+              <Step key={step.label}>
+                <StepLabel>{step.label}</StepLabel>
+                <StepContent>
+                  <Typography>{step.description}</Typography>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
+        </div>
+        <Loading width='20%' style={{ position: 'absolute' }} />
       </div>
     </>
   );

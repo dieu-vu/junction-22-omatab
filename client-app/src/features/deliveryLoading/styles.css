@@ -2,7 +2,10 @@
 
 .tracking-page {
   background-image: url('../../assets/city.png');
-  height: 500px;
+  background-size: contain;
+
+  height: 1000px;
+  background-repeat: no-repeat;
 }
 
 .tracking-container {
@@ -13,7 +16,7 @@
 
 #motorcycle {
   position: absolute;
-  top: 450px;
+  top: 700px;
   animation: motorcycle 7s infinite;
 }
 
