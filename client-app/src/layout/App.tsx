@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'; // eslint-disable-line no-unused-vars
 import OrderSummary from '../features/orderSummary/OrderSummary';
 import {
-  BrowserRouter as Router,
+  BrowserRouter as Router, // eslint-disable-line no-unused-vars
   Route,
   RouterProvider,
   createBrowserRouter,
@@ -10,11 +9,6 @@ import {
 } from 'react-router-dom';
 import PickupLocation from '../features/deliveryInfo/PickupLocation';
 import DropoffLocation from '../features/deliveryInfo/DropoffLocation';
-=======
-//TODO: Check if this element is needed later
-import React from 'react'; // eslint-disable-line no-unused-vars
-import Header from '../components/Header/Header';
->>>>>>> Add eslint ignore for unused variable
 
 const router = createBrowserRouter(
   createRoutesFromElements(
