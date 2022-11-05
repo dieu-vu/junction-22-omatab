@@ -16,7 +16,7 @@ const OrderSummary = () => {
           setState((prev) => ({ ...prev, orderContent: contents }));
         //   console.log("contents", contents);
         //   console.log("setState", state.orderContent);
-      }, [contents, setState]);
+      });
     
   return (
     <>
