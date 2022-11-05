@@ -20,7 +20,7 @@ const OrderSummary = () => {
     setState((prev) => ({ ...prev, orderContent: contents }));
     //   console.log("contents", contents);
     //   console.log("setState", state.orderContent);
-  });
+  }, []);
 
   return (
     <>
@@ -31,7 +31,9 @@ const OrderSummary = () => {
       <div className='order-container'>
         <div className='summary'>
           <div className='left-card'>
-            <a href="/delivery/dropoff"><PatientCard /></a>
+            <a href='/delivery/dropoff'>
+              <PatientCard />
+            </a>
           </div>
           <div className='right-card'>
             <PrescriptionSummary />

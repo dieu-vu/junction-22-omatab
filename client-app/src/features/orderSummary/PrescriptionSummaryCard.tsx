@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import item1 from '../../assets/item1.png';
 import item2 from '../../assets/item2.png';
 import item3 from '../../assets/item3.png';
-//import { prescriptions } from '../../data/prescriptions';
+import { prescriptions } from '../../data/prescriptions';
 // import {Prescription, prescriptions} from '../../seedData/prescriptions';
 
 interface ExpandMoreProps {
@@ -27,7 +27,19 @@ export default function PrescriptionSummary() {
   const [categories, setCategories] = useState<Map<string, number>>(new Map());
 
   useEffect(() => {
-    setCategories(new Map());
+    const newCategories = new Map<string, number>();
+    prescriptions.forEach((el) => {
+      const tags = el.Tag;
+      tags.forEach((t) => {
+        if (!newCategories.has(t)) {
+          newCategories.set(t, 1);
+        } else {
+          const item = newCategories.get(t);
+          if (item) newCategories.set(t, item + 1);
+        }
+      });
+    });
+    setCategories(newCategories);
   }, []);
 
   const ExpandMore = styled((props: ExpandMoreProps) => {
