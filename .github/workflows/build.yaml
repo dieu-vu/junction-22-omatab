@@ -23,6 +23,9 @@ jobs:
           PORT: 3001
         name: Generate frontend env file
       - run: |
+          cat .env
+        working-directory: ./client-app
+      - run: |
           npm install
           npm run build
         working-directory: ./client-app
