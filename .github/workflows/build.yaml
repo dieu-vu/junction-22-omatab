@@ -12,5 +12,5 @@ jobs:
         name: Setup Node.js
       - run: |
           npm install
-          npm start
+          npm run build
         working-directory: ./client-app
