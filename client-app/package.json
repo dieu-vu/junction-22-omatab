@@ -47,6 +47,5 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3"
-  },
-  "proxy": "http://65.108.221.181:3001"
+  }
 }
