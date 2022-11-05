@@ -61,17 +61,15 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
         5,
         formState.time
       );
-      if (state.orderDTO) {
-        var postResponse = await postOrder(orderDTO);
+      var postResponse = await postOrder(orderDTO);
 
-        console.log("response: ", postResponse);
-        if (!postResponse) {
-          alert('Post order failed, please try again');
-        }
-        var trackingLink = postResponse.tracking.url;
-        setState((prev) => ({ ...prev, trackingLink: trackingLink }));
-        navigate('/delivery/loading');
+      console.log("response: ", postResponse);
+      if (!postResponse) {
+        alert('Post order failed, please try again');
       }
+      var trackingLink = postResponse.tracking.url;
+      setState((prev) => ({ ...prev, trackingLink: trackingLink }));
+      navigate('/delivery/loading');
     }
   };
 
