@@ -1,6 +1,6 @@
 import { OrderDTO } from './OrderDTO';
 
-const baseUrl: string = 'http://127.0.0.1:3001'
+// const baseUrl: string = 'http://127.0.0.1:3001'
 const api_key: string = process.env.REACT_APP_API_KEY || ''; 
 const merchant_id: string = process.env.REACT_APP_MERCHANT_ID || '';
 
@@ -24,7 +24,7 @@ const postOrder = async (data: OrderDTO) => {
   };
   try {
     const response = await fetch(
-      `${baseUrl}/${merchant_id}/delivery-order`,
+      `/${merchant_id}/delivery-order`,
       options
     );
     const json = await response.json();
