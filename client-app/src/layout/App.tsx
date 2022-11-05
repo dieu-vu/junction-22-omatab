@@ -6,15 +6,15 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import PickupLocation from '../features/deliveryInfo/PickupLocation';
-import DropoffLocation from '../features/deliveryInfo/DropoffLocation';
+import DropoffInfo from '../features/deliveryInfo/DropoffInfo';
+import PickupInfo from '../features/deliveryInfo/PickupInfo';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<OrderSummary />} />
-      <Route path='/delivery/pickup' element={<PickupLocation />} />
-      <Route path='/delivery/dropoff' element={<DropoffLocation />} />
+      <Route path='/delivery/pickup' element={<PickupInfo />} />
+      <Route path='/delivery/dropoff' element={<DropoffInfo />} />
     </>
   )
 );
