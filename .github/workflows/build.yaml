@@ -11,14 +11,13 @@ jobs:
       - uses: actions/setup-node@v3
         name: Setup Node.js
       - run: |
-          cat > env<<EOF
-          REACT_APP_API_KEY=${REACT_APP_API_KEY}
-          REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID}
-          EOF
+          echo REACT_APP_API_KEY=${REACT_APP_API_KEY} > ${ENV_FILE}
+          echo REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID} >> ${ENV_FILE}
         working-directory: ./client-app
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
+          ENV_FILE: env
         name: Generate env file
       - run: |
           npm install
