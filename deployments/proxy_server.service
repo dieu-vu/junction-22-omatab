@@ -1,0 +1,11 @@
+[Unit]
+Description="Omatab proxy server"
+
+[Service]
+Type=simple
+ExecStart=/home/omatab/proxy_server.sh
+Restart=always
+User=omatab
+
+[Install]
+WantedBy=multi-user.target

@@ -22,7 +22,7 @@ jobs:
           npm install
           npm run build
         working-directory: ./client-app
-        name: Build
+        name: Build front end
       - uses: easingthemes/ssh-deploy@main
         name: Sync build result to deployment server
         env:
@@ -31,6 +31,10 @@ jobs:
           REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/publish"
+      - name: Cleanup env file
+        run: |
+          rm -f .env
+        working-directory: ./client-app
       - uses: easingthemes/ssh-deploy@main
         name: Sync start.sh to deployment server
         env:
@@ -39,7 +43,23 @@ jobs:
           REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/"
-      - name: Cleanup env file
-        run: |
-          rm -f .env
-        working-directory: ./client-app
+      - run: |
+          npm install
+        working-directory: ./proxy_server
+        name: Build proxy server
+      - uses: easingthemes/ssh-deploy@main
+        name: Sync proxy server to deployment server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "proxy_server/"
+          REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
+          REMOTE_USER: "omatab"
+          TARGET: "/home/omatab/proxy_server"
+      - uses: easingthemes/ssh-deploy@main
+        name: Sync proxy_server.sh to deployment server
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "deployments/proxy_server.sh"
+          REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
+          REMOTE_USER: "omatab"
+          TARGET: "/home/omatab/"
