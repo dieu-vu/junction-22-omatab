@@ -10,7 +10,8 @@ const merchant_id: string = process.env.REACT_APP_MERCHANT_ID || '';
 console.log(
   'env var: ',
   process.env.REACT_APP_MERCHANT_ID || 'env var not found',
-  process.env.HOST || 'HOST env var not found'
+  process.env.HOST || 'HOST env var not found',
+  process.env.PORT || 'PORT env var not found',
 );
 
 const postOrder = async (data: OrderDTO) => {
