@@ -1,4 +1,4 @@
-import OrderSummary from '../features/orderSummary/OderSummary';
+import OrderSummary from '../features/orderSummary/OrderSummary';
 import {
   // BrowserRouter as Router,
   Route,

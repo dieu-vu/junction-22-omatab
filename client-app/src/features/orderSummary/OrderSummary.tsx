@@ -1,7 +1,7 @@
 import Header from '../../components/Header/Header';
 import PrescriptionSummary from './PrescriptionSummaryCard';
 import PatientCard from './PatientCard';
-import { patient } from '../../seedData/patient';
+// import { patient } from '../../seedData/patient';
 import './styles.css';
 
 const OrderSummary = () => {
