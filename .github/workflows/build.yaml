@@ -21,3 +21,10 @@ jobs:
           REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
           REMOTE_USER: "omatab"
           TARGET: "/home/omatab/publish"
+      - uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "deployments/start.sh"
+          REMOTE_HOST: ${{ secrets.BUILD_HOST_ADDRESS }}
+          REMOTE_USER: "omatab"
+          TARGET: "/home/omatab/"
