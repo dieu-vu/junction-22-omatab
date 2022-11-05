@@ -59,7 +59,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
         state.orderContent,
         [],
         5,
-        `${formState.time}.000Z`
+        formState.time
       );
       var postResponse = await postOrder(orderDTO);
       console.log(postResponse);
