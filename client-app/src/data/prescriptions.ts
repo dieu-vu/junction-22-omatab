@@ -3,7 +3,7 @@ export type Prescription = {
     MedicineName: string,
     Quantity: number,
     Note: string | any,
-    Tag: string
+    Tag: string[]
 }
 
 const p1: Prescription = {
@@ -11,7 +11,7 @@ const p1: Prescription = {
     MedicineName: "Multivitamin",
     Quantity: 2,
     Note: " 1 tab per day",
-    Tag: "Supplements"
+    Tag: ["Supplements"]
 }
 
 const p2: Prescription = {
@@ -19,7 +19,7 @@ const p2: Prescription = {
     MedicineName: "Aspirin",
     Quantity: 1,
     Note: "1 tab when pain",
-    Tag: "Painkiller"
+    Tag: ["Painkiller"]
 }
 
 const p3: Prescription = {
@@ -27,7 +27,7 @@ const p3: Prescription = {
     MedicineName: "Calcium",
     Quantity: 1,
     Note: " 1 tab every 2 day",
-    Tag: "Supplements"
+    Tag:[ "Supplements"]
 }
 
 const p4: Prescription = {
@@ -35,9 +35,9 @@ const p4: Prescription = {
     MedicineName: "BEPANTHEN EYE SILMÄTIPAT 40X0,5 ML",
     Quantity: 1,
     Note: "2 drops everyday",
-    Tag: "Eye drop"
+    Tag: ["Eye drop"]
 }
 
 export const prescriptions: Prescription[] = [
-    p1, p2, p3
+    p1, p2, p3, p4
 ]

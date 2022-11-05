@@ -1,3 +1,6 @@
+
+import { Prescription } from "../data/prescriptions";
+
 export interface PickupLocation {
     formatted_address: string;
 }
@@ -54,3 +57,24 @@ export interface OrderDTO {
     min_preparation_time_minutes: number;
     scheduled_dropoff_time?: any;
 }
+
+
+function PrescriptionToOrderDTO(prescription: Prescription): Content {
+    var content: Content = {
+        count: prescription.Quantity,
+        description: `${prescription.MedicineName}. Note: ${prescription.Note}`,
+        identifier: prescription.Identifier,
+        tags: prescription.Tag
+    }
+    return content;
+}
+
+
+export function CreateOrderContentFromPrescription(prescriptions: Prescription[]): Content[] {
+    var contentArray: Content[] = [];
+    contentArray = prescriptions.map(p => PrescriptionToOrderDTO(p));
+    return contentArray;
+}
+
+
+
