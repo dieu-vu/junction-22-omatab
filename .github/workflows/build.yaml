@@ -12,19 +12,14 @@ jobs:
         name: Setup Node.js
       - run: |
           echo > env<<EOF
-          REACT_APP_API_KEY=${REACT_APP_API_KEY}
-          REACT_APP_MERCHANT_ID=${REACT_APP_MERCHANT_ID}
+          REACT_APP_API_KEY=$REACT_APP_API_KEY
+          REACT_APP_MERCHANT_ID=$REACT_APP_MERCHANT_ID
           EOF
         working-directory: ./client-app
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_MERCHANT_ID: ${{ secrets.REACT_APP_MERCHANT_ID }}
         name: Generate env file
-      - run: |
-          npm install
-          npm run build
-        working-directory: ./client-app
-        name: Build
       - uses: easingthemes/ssh-deploy@main
         name: Sync build result to deployment server
         env:
