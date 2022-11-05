@@ -1,5 +1,9 @@
 # junction-oma-tab
 
+Demo product for Hackathon [Junction 2022 Wolt's challenge](https://www.junction2022.com/challenges-new/wolt)
+
+Team _**omatab**_: [Huy Mai](https://github.com/mquhuy), [Dieu Vu](https://github.com/dieu-vu), [Giang Nguyen](https://github.com/GiangNguyen1207)
+
 ## API Example
 
 ```bash
