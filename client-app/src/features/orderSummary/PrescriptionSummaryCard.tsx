@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import item1 from '../../assets/item1.png';
 import item2 from '../../assets/item2.png';
 import item3 from '../../assets/item3.png';
-import { prescriptions } from '../../data/prescriptions';
+//import { prescriptions } from '../../data/prescriptions';
 // import {Prescription, prescriptions} from '../../seedData/prescriptions';
 
 interface ExpandMoreProps {
