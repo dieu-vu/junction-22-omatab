@@ -9,7 +9,7 @@ export default function Header({ title }: Props) {
   return (
     <div className='header-container'>
       <div className='logo'>
-        <ProjectLogo />
+        <a href="/"><ProjectLogo /></a>
       </div>
       <p>{title}</p>
       <div />
