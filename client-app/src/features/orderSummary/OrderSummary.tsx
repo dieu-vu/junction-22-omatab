@@ -1,9 +1,15 @@
 import { Container } from "@mui/material";
 import React from "react";
+import Header from "../../components/Header/Header";
 
 const OrderSummary = () => {
     return (
-          <h1>Order Summary</h1>
+        <>
+            <Header title="Order Summary"/>
+            <h1>Order Summary</h1>
+        </>
+
+        
     )
 }
 
