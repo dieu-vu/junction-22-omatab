@@ -29,7 +29,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
     phoneNumber: '',
     hasTrackingSMS: true,
     address: '',
-    time: new Date().toISOString(),
+    time: new Date().toISOString().substring(0, 16),
     comment: '',
   });
 
@@ -39,7 +39,14 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
     var smsTracking: boolean = formState.hasTrackingSMS;
     var name: string = formState.name;
     var comment: string = formState.comment;
-    var deliveryInfo = BuildDeliveryInfoObject(isPickUp, address, phoneNumber, smsTracking, name, comment);
+    var deliveryInfo = BuildDeliveryInfoObject(
+      isPickUp,
+      address,
+      phoneNumber,
+      smsTracking,
+      name,
+      comment
+    );
     if (isPickUp) {
       navigate('/delivery/dropoff');
       setState((prev) => ({ ...prev, pickup: deliveryInfo }));
@@ -52,13 +59,12 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
         state.orderContent,
         [],
         5,
-        formState.time,
-      )
+        formState.time
+      );
       var postResponse = await postOrder(orderDTO);
       console.log(postResponse);
     }
-  }
-
+  };
 
   const handleButtonClick = (event: any) => {
     event.preventDefault();
@@ -131,7 +137,10 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
           id='datetime-local'
           label='Pick a time'
           type='datetime-local'
-          defaultValue={formState.time}
+          value={formState.time}
+          onChange={(event) => {
+            setFormState({ ...formState, time: event.target.value });
+          }}
           InputLabelProps={{
             shrink: true,
           }}
