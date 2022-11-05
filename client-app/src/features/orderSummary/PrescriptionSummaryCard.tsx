@@ -11,20 +11,41 @@ import { useState } from 'react';
 import item1 from '../../assets/item1.png';
 import item2 from '../../assets/item2.png';
 import item3 from '../../assets/item3.png';
+import { prescriptions } from '../../data/prescriptions';
 // import {Prescription, prescriptions} from '../../seedData/prescriptions';
 
 interface ExpandMoreProps {
-  expand: string;
+  category: string;
+  expand: boolean;
   image: string;
   handleClick: () => void;
 }
 
 export default function PrescriptionSummary() {
-  const [expanded, setExpanded] = useState('');
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const [expandedContent, setExpandedContent] = useState<string>('');
+  const [categories, setCategories] = useState<Map<string, number>>(new Map());
+
+  prescriptions.forEach((el) => {
+    const tags = el.Tag;
+    tags.forEach((t) => {
+      if (!categories.has(t)) {
+        categories.set(t, 1);
+      } else {
+        const item = categories.get(t);
+        if (item) categories.set(t, item + 1);
+      }
+    });
+  });
 
   const ExpandMore = styled((props: ExpandMoreProps) => {
-    const { image, handleClick } = props;
-    return <img src={image} alt='Item' onClick={handleClick} className='img' />;
+    const { image, category, handleClick } = props;
+    return (
+      <div onClick={handleClick}>
+        <img src={image} alt='Item' className='img' />
+        <p style={{ marginLeft: 5 }}>{category}</p>
+      </div>
+    );
   })(({ theme, expand }) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
     marginLeft: 'auto',
@@ -34,7 +55,8 @@ export default function PrescriptionSummary() {
   }));
 
   const handleExpandClick = (name: string) => {
-    setExpanded(name);
+    if (name === expandedContent) setExpanded(!expanded);
+    setExpandedContent(name);
   };
 
   return (
@@ -47,53 +69,37 @@ export default function PrescriptionSummary() {
           mussels, if you like.
         </Typography>
         <CardActions sx={{ marginY: 2 }}>
-          <ExpandMore
-            expand={expanded}
-            image={item1}
-            handleClick={() => handleExpandClick('item1')}
-          />
-
-          <ExpandMore
-            expand={expanded}
-            image={item2}
-            handleClick={() => handleExpandClick('item2')}
-          />
-
-          <ExpandMore
-            expand={expanded}
-            image={item3}
-            handleClick={() => handleExpandClick('item3')}
-          />
+          {Array.from(categories.keys()).map((cat) => {
+            return (
+              <ExpandMore
+                expand={expanded}
+                category={`${cat} (${categories.get(cat)})`}
+                image={
+                  cat === 'Painkiller'
+                    ? item1
+                    : cat === 'Supplements'
+                    ? item2
+                    : item3
+                }
+                handleClick={() => handleExpandClick(cat)}
+              />
+            );
+          })}
         </CardActions>
       </CardContent>
-      <Collapse in={expanded !== ''} timeout='auto' unmountOnExit>
+      <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
-          {expanded === 'item1' ? (
-            <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron
-              and set aside for 10 minutes.
-            </Typography>
-          ) : expanded === 'item2' ? (
-            <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-              over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-              stirring occasionally until lightly browned, 6 to 8 minutes.
-              Transfer shrimp to a large plate and set aside, leaving chicken
-              and chorizo in the pan. Add pimentón, bay leaves, garlic,
-              tomatoes, onion, salt and pepper, and cook, stirring often until
-              thickened and fragrant, about 10 minutes. Add saffron broth and
-              remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
+          {expandedContent === 'Painkiller' ? (
+            <Typography paragraph>MedicineName: 'Aspirin'</Typography>
+          ) : expandedContent === 'Supplements' ? (
+            <>
+              <Typography paragraph>MedicineName: 'Multivitamin'</Typography>
+              <Typography paragraph>
+                MedicineName: 'BEPANTHEN EYE SILMÄTIPAT 40X0,5 ML'
+              </Typography>
+            </>
           ) : (
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes
-              and peppers, and cook without stirring, until most of the liquid
-              is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add
-              reserved shrimp and mussels, tucking them down into the rice, and
-              cook again without stirring, until mussels have opened and rice is
-              just tender, 5 to 7 minutes more. (Discard any mussels that
-              don&apos;t open.)
-            </Typography>
+            <Typography paragraph>MedicineName: 'Calcium'</Typography>
           )}
         </CardContent>
       </Collapse>
