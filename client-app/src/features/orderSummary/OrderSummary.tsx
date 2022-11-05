@@ -5,19 +5,21 @@ import PatientCard from './PatientCard';
 import './styles.css';
 import { CreateOrderContentFromPrescription } from '../../hooks/OrderDTO';
 import { prescriptions } from '../../data/prescriptions';
-// import { MainContext } from '../../context/MainContext';
-// import { useContext } from 'react';
+import { useGlobalState } from '../../context/MainContext';
+import { useEffect } from 'react';
 
 const OrderSummary = () => {
-  // const { setOrderContent } = React.useContext(MainContext);
-  var contents = CreateOrderContentFromPrescription(prescriptions);
-  // setOrderContent(contents);
+  const { state, setState } = useGlobalState();
+    var contents = CreateOrderContentFromPrescription(prescriptions);
+    setState((prev) => ({ ...prev, orderContent: contents }));
 
+    
   return (
     <>
       <Header title='Order Summary' />
-      <p>{process.env.REACT_APP_MERCHANT_ID || 'env var not found'}</p>
-      <p>{ contents[0].description.toString()}</p>
+        {state.orderContent !== undefined && (
+            <p>{ state.orderContent[0]?.description?.toString()}</p>
+              )}
       <div className='container'>
         <div className='left-card'>
           <PatientCard />
