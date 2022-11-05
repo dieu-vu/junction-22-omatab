@@ -29,7 +29,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
     phoneNumber: '',
     hasTrackingSMS: true,
     address: '',
-    time: new Date().toISOString().substring(0, 16),
+    time: new Date().toISOString().substring(0, 19),
     comment: '',
   });
 
@@ -59,7 +59,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
         state.orderContent,
         [],
         5,
-        formState.time
+        `${formState.time}.000Z`
       );
       var postResponse = await postOrder(orderDTO);
       console.log(postResponse);
