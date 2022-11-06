@@ -22,16 +22,27 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${API
 ```
 
 ## Local test:
-### Start the client
 
+
+### Start the proxy server
 ```bash
 cd proxy-server
 npm install
 npm start
 ```
+
+
 ### Start the client
 ```bash
 cd client-app
+```
+- Add the `.env` to client-app folder
+```txt
+REACT_APP_MERCHANT_ID=<YOUR_MERCHANT_ID>
+REACT_APP_API_KEY=<YOUR_API_KEY>
+```
+- Start the application
+```bash
 npm install
 npm start
 ```
