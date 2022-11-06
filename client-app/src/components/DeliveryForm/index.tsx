@@ -61,15 +61,17 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
         5,
         formState.time
       );
-      var postResponse = await postOrder(orderDTO);
-
-      console.log("response: ", postResponse);
-      if (!postResponse) {
-        alert('Post order failed, please try again');
+      if (state.orderDTO) {
+        var postResponse = await postOrder(orderDTO);
+        console.log("response: ", postResponse);
+        if (!postResponse) {
+          alert('Post order failed, please try again');
+        }
+        var trackingLink = postResponse.tracking.url;
+        setState((prev) => ({ ...prev, trackingLink: trackingLink }));
+        navigate('/delivery/loading');
       }
-      var trackingLink = postResponse.tracking.url;
-      setState((prev) => ({ ...prev, trackingLink: trackingLink }));
-      navigate('/delivery/loading');
+      
     }
   };
 
@@ -108,7 +110,7 @@ export default function DeliveryForm({ title, isPickedUp }: Props) {
       />
       <TextField
         id='outlined-basic'
-        label='Phone number'
+        label='Phone number with country code, e.g +358xxxxxxxxx'
         variant='outlined'
         required
         value={formState.phoneNumber}
