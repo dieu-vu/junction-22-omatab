@@ -4,6 +4,7 @@ Demo product for Hackathon [Junction 2022 Wolt's challenge](https://www.junction
 
 Team _**omatab**_: [Huy Mai](https://github.com/mquhuy), [Dieu Vu](https://github.com/dieu-vu), [Giang Nguyen](https://github.com/GiangNguyen1207)
 
+
 ### Demo video:
 [![demo recording](http://img.youtube.com/vi/zgXKeac_Ygc/0.jpg)](https://youtu.be/zgXKeac_Ygc)
       
@@ -47,4 +48,4 @@ npm install
 npm start
 ```
 
-## Production site: http://65.108.221.181/
+## Production site: http://65.108.221.181/ (deployment server has been closed after the competition)
